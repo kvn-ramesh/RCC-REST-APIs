@@ -23,10 +23,10 @@ const developmentLengthAid = (req, res, next) => {
 
                 // Construct JSON object for Development Length
                 const result = {
-                    concreteGrade,
-                    steelGrade,
-                    barDiameter,
-                    reqDevelopmentLengthMm
+                    "Grade of concrete N/mm2": concreteGrade,
+                    "Grade of steel N/mm2": steelGrade,
+                    "Diameter of bar mm": barDiameter,
+                    "Required development length mm": reqDevelopmentLengthMm
                 };
 
                 // Add result to array
