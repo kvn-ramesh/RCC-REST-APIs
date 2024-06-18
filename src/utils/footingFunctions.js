@@ -93,19 +93,21 @@ function calculateAreaMinSteelReinforcement(widthOfFooting, overallDepthinmm, st
 }
 
 // Function to calculate required Development Length
-function calculateReqDevelopmentLength(concreteGrade, steelGrade, barDiameterMm) {
+function calculateReqDevelopmentLength(concreteGrade, steelGrade, barDiameterMm, tensionCompFactor) {
 
     let designBondStress;
-    if (concreteGrade === 20) {
-        designBondStress = 1.2;
+    if (concreteGrade === 15) {
+        designBondStress = 1.0 * tensionCompFactor;
+    } else if (concreteGrade === 20) {
+        designBondStress = 1.2 * tensionCompFactor;
     } else if (concreteGrade === 25) {
-        designBondStress = 1.4;
+        designBondStress = 1.4 * tensionCompFactor;
     } else if (concreteGrade === 30) {
-        designBondStress = 1.5;
+        designBondStress = 1.5 * tensionCompFactor;
     } else if (concreteGrade === 35) {
-        designBondStress = 1.7;
+        designBondStress = 1.7 * tensionCompFactor;
     } else if (concreteGrade >= 40) {
-        designBondStress = 1.9;
+        designBondStress = 1.9 * tensionCompFactor;
     } else {
         // Handle other cases or provide a default value
         designBondStress = null; // You can change this to a default value or handle it differently
@@ -120,6 +122,10 @@ function calculateReqDevelopmentLength(concreteGrade, steelGrade, barDiameterMm)
     } else {
         // Handle other cases or provide a default value
         calculatedDesignBondStress = null; // You can change this to a default value or handle it differently
+    }
+
+    if (steelGrade === 250 && barDiameterMm > 20) {
+        steelGrade = 240;
     }
 
     let reqDevelopmentLength;

@@ -107,8 +107,9 @@ const footingDesign = (req, res, next) => {
                         // Bar Length available
                         const barLengthAvailableMm = ((widthOfFooting * 1000) - columnWidth) / 2;
 
-                        // Required Development Length
-                        const reqDevelopmentLengthMm = calculateReqDevelopmentLength(concreteGrade, steelGrade, barDiameter);
+                        // Required Development Length - Tension Bars
+                        const tensionFactor = 1;
+                        const reqDevelopmentLengthMm = Math.round(calculateReqDevelopmentLength(concreteGrade, steelGrade, barDiameter, tensionFactor));
 
                         // Construct JSON object for current load
                         const result = {
