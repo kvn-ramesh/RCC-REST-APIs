@@ -23,14 +23,14 @@ const steelPercentage = (req, res, next) => {
                     const pcompression = calculatePcompression(fy, ptension, ptlim_val, CompressionSteelStress, fck);
 
                     results.push({
-                        steelGrade: `Fe${fy}`,
-                        concreteGrade : `M${fck}`,
-                        factoredMoment : rv,
-                        dratio: parseFloat(dr.toFixed(2)),
-                        ptlim_val: ptlim_val,
-                        CompressionSteelStress: parseFloat(CompressionSteelStress.toFixed(2)),
-                        ptension: parseFloat(ptension.toFixed(3)),
-                        pcompression: parseFloat(pcompression.toFixed(3)),
+                        "Grade of steel N/mm2": `Fe${fy}`,
+                        "Grade of concrete N/mm2" : `M${fck}`,
+                        "Moment of resistance factor (Mu/bd2) N/mm2" : rv,
+                        "d'/d": parseFloat(dr.toFixed(2)),
+//                        ptlim_val: ptlim_val,
+//                        CompressionSteelStress: parseFloat(CompressionSteelStress.toFixed(2)),
+                        "Tension reinforcement percentage": parseFloat(ptension.toFixed(3)),
+                        "Compression reinforcement percentage": parseFloat(pcompression.toFixed(3)),
                     });
                 });
             });
