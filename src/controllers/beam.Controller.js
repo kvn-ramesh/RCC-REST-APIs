@@ -17,13 +17,13 @@ const ftrpsrrbs = (req, res, next) => {
                 const ldna = limitingdepthna(fy);
                 const ptlimval = ptlim(fck, fy);
                 const Rlim = mulimbd2(fck, fy);                
-                totalArray.push({R : (R100/100).toFixed(2),
-                    fck : fck,
-                    fy : fy,
-                    pt : pt,
-                    ldna : ldna.toFixed(3),
-                    ptlim : ptlimval.toFixed(3),
-                    Rlim : Rlim.toFixed(3)
+                totalArray.push({"Moment of resistance factor (Mu/bd2) N/mm2" : (R100/100).toFixed(2),
+                    "Grade of concrete N/mm2" : fck,
+                    "Grade of steel N/mm2" : fy,
+                    "Tension reinforcement percentage" : pt,
+                    "Limiting depth of neutral axis to effective depth ratio" : ldna.toFixed(3),
+                    "Limiting Percentage of Tensile Steel" : ptlimval.toFixed(3),
+                    "Limiting Moment of Resistance factor N/mm2" : Rlim.toFixed(3)
                   });
             });
         });
